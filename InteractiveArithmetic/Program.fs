@@ -5,26 +5,30 @@ let main argv =
     let mutable inpt = Console.ReadLine ()
 
     while inpt <> "exit" do
-        let res = match inpt with
-                  | "add" -> 1
-                  | "sub" -> 2
-                  | "mul" -> 3
-                  | "div" -> 4
-                  | "sq" -> 5
-                  | "sqrt" -> 6
-                  | "pow" -> 7
-                  | "abs" -> 8
-                  | "ceil" -> 9
-                  | "floor" -> 10
-                  | "sum" -> 11
-                  | "avg" -> 12
-                  | "med" -> 13
-                  | "mod" -> 14
-                  | "max" -> 15
-                  | "min" -> 16
-                  | _ -> -1
+        let tks = inpt.Split ' '
+
+        let res = match tks.[0] with
+                  | "add" -> Some(Convert.ToDouble(tks.[1]) + Convert.ToDouble(tks.[2]))
+                  | "sub" -> Some(Convert.ToDouble(tks.[1]) - Convert.ToDouble(tks.[2]))
+                  | "mul" -> None
+                  | "div" -> None
+                  | "sq" -> None
+                  | "sqrt" -> None
+                  | "pow" -> None
+                  | "abs" -> None
+                  | "ceil" -> None
+                  | "floor" -> None
+                  | "sum" -> None
+                  | "avg" -> None
+                  | "med" -> None
+                  | "mod" -> None
+                  | "max" -> None
+                  | "min" -> None
+                  | _ -> None
                 
-        printfn "%A" res
+        match res with
+        | Some x -> printfn "%f" x
+        | None -> printfn "%s" "Invalid arithmetic function."
 
         inpt <- Console.ReadLine ()
 
