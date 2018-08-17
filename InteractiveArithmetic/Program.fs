@@ -10,7 +10,7 @@ let main argv =
         let res = match tks.[0] with
                   | "add" -> Some(Convert.ToDouble(tks.[1]) + Convert.ToDouble(tks.[2]))
                   | "sub" -> Some(Convert.ToDouble(tks.[1]) - Convert.ToDouble(tks.[2]))
-                  | "mul" -> None
+                  | "mul" -> Some(Convert.ToDouble(tks.[1]) * Convert.ToDouble(tks.[2]))
                   | "div" -> None
                   | "sq" -> None
                   | "sqrt" -> None
